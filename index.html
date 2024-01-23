@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <button onclick="vygenerovanaVeta()">Generuj Větu</button>
+
+  <button onclick="vypocet()">Spočítat plochu kruhu</button>
+  <p> Zadej hodnotu poloměru r: <input type="number" id="polomer"></p>
+
+  <p>Výsledná plocha : <span id="vysledekpolomer"></span></p>
+
+
+  <p id ="veta"></p>
+  
+  <script>
+    
+  let slova = ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek"]
+  let fraze = ["Budeme se učit", "Bude teplo", "Bude chladno", "Vyhrajeme loterii", "Budeme grilovat"]
+
+  function vygenerovanaVeta(){
+    let slova1 = slova[Math.floor(Math.random() * slova.length)]
+    let fraze1 = fraze[Math.floor(Math.random() * fraze.length)]
+    let vygenerovanaVeta = `${slova1} ${fraze1}`;
+       document.getElementById('veta').textContent = vygenerovanaVeta
+    }
+
+    const PI = 3.14;
+
+ function plochaKruhu(r){
+      return PI * r ** 2;
+    }
+
+    function vypocet(){
+    let polomer = parseFloat(document.getElementById("polomer").value);
+
+    let vysledek = plochaKruhu(polomer);
+
+    document.getElementById("vysledekpolomer").textContent = vysledek;
+    }
+  </script>
+
+</body>
+
+</html>
